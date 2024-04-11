@@ -1,21 +1,23 @@
 package com.example.reverso_web.controleur;
 
-import com.example.reverso_web.exception.DaoException;
-import com.example.reverso_web.exception.MyException;
 import com.example.reverso_web.model.dao.DaoClient;
-import com.example.reverso_web.model.dao.DaoProspect;
 import com.example.reverso_web.model.entite.Client;
-import com.example.reverso_web.model.entite.Prospect;
-
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Le contrôleur pour l'affichage des données dans l'application.
  */
-public class ControleurAffichage {
+@WebServlet(name = "affichageClient", value = "/affichageClient")
+
+public class ControleurAffichage extends HttpServlet {
 
     /**
      * Initialise l'affichage avec le choix spécifié.
@@ -23,33 +25,17 @@ public class ControleurAffichage {
      * @param choix le choix spécifié pour l'affichage.
      */
     public static void init(String choix) {
-        Affichage affichage = new Affichage(choix);
-        affichage.setVisible(true);
+
     }
 
-    /**
-     * Récupère tous les clients de la base de données.
-     *
-     * @return une liste de tous les clients.
-     */
-    public static ArrayList<Client> findAllClient() throws Exception {
-            return DaoClient.findAll();
-    }
-
-    /**
-     * Récupère tous les prospects de la base de données.
-     *
-     * @return une liste de tous les Prospects.
-     */
-    public static ArrayList<Prospect> findAllProspect() throws Exception {
-        return DaoProspect.findAll();
-    }
-
-
-    /**
-     * Démarre l'interface d'accueil.
-     */
-    public static void startAccueil() {
-        ControleurAccueil.init();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        try {
+            List<Client> clients =DaoClient.findAll();
+            request.setAttribute("clients", clients);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/affichage.jsp");
+            dispatcher.forward(request, response);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

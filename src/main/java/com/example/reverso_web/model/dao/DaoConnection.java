@@ -28,7 +28,7 @@ public class DaoConnection {
      * @throws IOException   Si une erreur d'entrée/sortie se produit lors de la lecture du fichier de propriétés.
      */
     private static void connect() throws Exception {
-        Properties dataProperties = new Properties();
+       /* Properties dataProperties = new Properties();
         File file = new File("database.properties");
 
         try (FileInputStream input = new FileInputStream(file)) {
@@ -38,12 +38,15 @@ public class DaoConnection {
         String username = dataProperties.getProperty("username");
         String password = dataProperties.getProperty("password");
 
-            connection = DriverManager.getConnection(url, username, password);
+           */
+        
+        Class.forName("com.mysql.jdbc.Driver");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/reverso?serverTimezone=UTC", "root", "");
             MyLogger.LOGGER.log(Level.INFO,"Connexion à la base de données établie avec succès.");
-        } catch (SQLException|IOException e) {
+       /* } catch (SQLException|IOException e) {
             MyLogger.LOGGER.log(Level.SEVERE, "Erreur lors de l'établissement de la connexion à la base de données", e);
             throw new SQLException("Erreur lors de l'établissement de la connexion à la base de données", e);
-        }
+        }*/
     }
     /**
      * Méthode statique pour obtenir la connexion à la base de données.

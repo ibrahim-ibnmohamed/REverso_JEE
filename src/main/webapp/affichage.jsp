@@ -1,5 +1,8 @@
+<%@ page import="com.example.reverso_web.model.entite.Client" %>
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +25,7 @@
     <header>
       <nav class="nav1 navbar">
         <div class="container-fluid">
-          <a href="index.html">
+          <a href="index.jsp">
             <img class="logoCon" src="img/r.png" alt="Logo de mon entreprise"
           /></a>
         </div>
@@ -58,39 +61,19 @@
             </thead>
             <!-- Contenu du tableau -->
             <tbody>
+            <% for (Client client: (List<Client>) request.getAttribute("clients")){%>
               <tr>
-                <td data-lable="Raison Sociale">IbraTeCH</td>
-                <td data-lable="Num de Rue">5</td>
-                <td data-lable="Nom de Rue">Rue de la pixe</td>
-                <td data-lable="Ville">Nancy</td>
-                <td data-lable="Code Postal">54000</td>
-                <td data-lable="Téléphone">0721458725</td>
-                <td data-lable="Adresse Email">Ibra@gmail.com</td>
-                <td data-lable="CH">1000000</td>
-                <td data-lable="N°Employer">1</td>
+                <td data-lable="Raison Sociale"><%=client.getRaisonSociale() %></td>
+                <td data-lable="Num de Rue"><%=client.getNumeroDeRue() %></td>
+                <td data-lable="Nom de Rue"><%=client.getNomDeRue() %></td>
+                <td data-lable="Ville"><%=client.getVille() %></td>
+                <td data-lable="Code Postal"><%=client.getCodePostal() %></td>
+                <td data-lable="Téléphone"><%=client.getTelephone()%></td>
+                <td data-lable="Adresse Email"><%=client.getemail() %></td>
+                <td data-lable="CH"><%=client.getChiffreDaffaire() %></td>
+                <td data-lable="N°Employer"><%=client.getNombreEmployer() %></td>
               </tr>
-              <tr>
-                <td data-lable="raisonSociale">IbraTeCH</td>
-                <td data-lable="numDeRue">5</td>
-                <td data-lable="nomDeRue">Rue de la republique </td>
-                <td data-lable="ville">Nancy</td>
-                <td data-lable="codePostal">54000</td>
-                <td data-lable="telephone">0721458725</td>
-                <td data-lable="adresseEmail">lai@gmail.com</td>
-                <td data-lable="chiffreDAffaire">1000000</td>
-                <td data-lable="nombreEmployer">1</td>
-              </tr>
-              <tr>
-                <td data-lable="raisonSociale">IbraTeCH</td>
-                <td data-lable="numDeRue">5</td>
-                <td data-lable="nomDeRue">avenue de la liberté de je saiss pas qui </td>
-                <td data-lable="ville">Nancy</td>
-                <td data-lable="codePostal">54000</td>
-                <td data-lable="telephone">0721458725</td>
-                <td data-lable="adresseEmail">Ibrahi@gmail.com</td>
-                <td data-lable="chiffreDAffaire">1000000</td>
-                <td data-lable="nombreEmployer">1</td>
-              </tr>
+            <%} %>
               <!-- Ajoutez ici les autres lignes de données -->
             </tbody>
           </table>
