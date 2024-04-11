@@ -1,0 +1,232 @@
+@media only screen and (max-width: 600px) {
+    body{
+        background-color:#ad9551;
+    }
+    .btn-login {
+        background-color: hsla(48, 18%, 89%, 0.929);
+        z-index: 1;
+        font-style: italic;
+        border: #b09766 2px solid;
+        box-shadow: #0d0d0c 1px 1px 1px 1px;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+
+    }
+    .nav1 {
+        background-color: #ad9551;
+        height: 80px; /* Nouvelle hauteur pour les écrans de petite taille */
+    }
+    .nav2 {
+        height: 80px; /* Nouvelle hauteur pour les écrans de petite taille */
+    }
+    .logo {
+        margin-left: 23%;
+
+
+        width: 50%; /* Nouvelle largeur pour les écrans de petite taille */
+    }
+    main{
+        margin-top: 16%;
+        flex: 1 0 auto;
+    }
+    .dropdown-divider {
+        margin: 10px 0; /* Nouvelle marge pour les écrans de petite taille */
+        width: 70%; /* Nouvelle largeur pour les écrans de petite taille */
+        margin-left: 15%; /* Nouvelle marge pour les écrans de petite taille */
+    }
+    .btn-login {
+        padding: 8px 16px; /* Nouveau rembourrage pour les écrans de petite taille */
+        font-size: 14px; /* Nouvelle taille de police pour les écrans de petite taille */
+    }
+    .iconAccueil {
+        width: 40%; /* Nouvelle largeur pour les écrans de petite taille */
+    }
+    .card {
+        border-width: 3px; /* Nouvelle largeur de la bordure pour les écrans de petite taille */
+        padding: 8px; /* Nouveau rembourrage pour les écrans de petite taille */
+    }
+    .content {
+        font-size: 16px; /* Nouvelle taille de police pour les écrans de petite taille */
+    }
+    .logoCon {
+        width: 40%; /* Nouvelle largeur pour les écrans de petite taille */
+        margin-left: 30%;
+    }
+    .form {
+        margin-left: 10%; /* Nouvelle marge pour les écrans de petite taille */
+        margin-right: 10%; /* Nouvelle marge pour les écrans de petite taille */
+    }
+    body {
+        background-color: #dadada;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    .foot {
+        background-color: #ad9551;
+    }
+    table, thead,tbody,tr, th,td{
+        display:block ;
+
+    }
+    td{
+        padding-left: 150px ;
+        position: relative;
+
+
+    }
+    td::before{
+        padding: 10px;
+        content:attr(data-lable);
+        position:  absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 130px;
+        background-color: #ad9551;
+
+        display: flex ;
+        align-items: center;
+        font-weight: bold;
+
+    }
+    tr{
+        margin-bottom: 1rem;
+        background-color: #fafafa;
+        box-shadow: black 1px 1px 1px 1px ;
+
+    }
+    thead{
+        display: none;
+    }
+
+    *,*::before,*::after{
+        box-sizing: border-box;
+
+    }
+
+}
+/* Styles pour les écrans de taille moyenne et grande */
+@media only screen and (min-width: 601px) {
+    .nav1 {
+        background-color: #ad9551;
+        height: 100px; /* Hauteur par défaut pour les écrans de taille moyenne et grande */
+    }
+    .nav2 {
+        background-color: #dadada;
+        height: 100px; /* Hauteur par défaut pour les écrans de taille moyenne et grande */
+    }
+    .logo {
+        margin-left: 0.1%;
+        margin-top: 0.1%;
+        width: 9%;
+        z-index: 1;
+    }
+    body {
+        background-color: #dadada;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    main {
+        flex: 1 0 auto;
+    }
+    .dropdown-divider {
+        margin: 15px 0; /* Marge supérieure et inférieure de la ligne */
+        border: none; /* Supprime la bordure par défaut */
+        height: 1px; /* Hauteur de la ligne */
+        background-color: #ad9551; /* Couleur de fond de la ligne */
+        width: 50%; /* Largeur par défaut */
+        margin-left: 25%; /* Marge par défaut */
+    }
+    .foot {
+        background-color: #ad9551;
+    }
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+    }
+    .btn-login {
+        background-color: hsla(48, 18%, 89%, 0.929);
+        z-index: 1;
+        font-style: italic;
+        border: #b09766 2px solid;
+        box-shadow: #0d0d0c 1px 1px 1px 1px;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+        text-decoration: crimson; /* Supprime le soulignement */
+    }
+    a {
+        color: #ad9551;
+        text-decoration: crimson;
+    }
+    .btn-login:hover {
+        transform: translate(-3%, -3%) scale(1.1);
+    }
+
+    .iconAccueil {
+        width: 30%;
+    }
+    .iconAccueil:hover {
+        transform: translate(-3%, -3%) scale(1.1); /* Agrandir l'image de 3% */
+    }
+
+    .card {
+        border: 5px solid #ad945162; /* Bordure de la carte */
+        border-radius: 5px; /* Coins arrondis */
+        box-shadow: 0 2px 4px rgba(233, 10, 10, 0.1); /* Ombre de la carte */
+        padding: 10px; /* Espacement interne de la carte */
+        background-color: rgba(255, 228, 196, 0); /* Bisque transparent */
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content {
+        font-size: 6cap;
+        font-family: "Monocpace", cursive;
+        color: #ad9551;
+    }
+    .cards {
+        color: black;
+    }
+    #btn_conection {
+        margin-top: 10%;
+    }
+
+    .logoCon {
+        width: 30%;
+    }
+
+    a {
+        z-index: 1;
+    }
+
+    .bb {
+        margin-bottom: 15%;
+    }
+
+    .navAffiche {
+        background-color: #0d0d0c;
+    }
+
+    .form {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    th,td {
+        padding: 10px;
+        text-align: left;
+        border: solid 1px #b09766 ;
+    }
+
+    th {
+        background-color: #ad945172 !important;
+    }
+    table{
+        margin: auto;
+
+    }
+
+}
