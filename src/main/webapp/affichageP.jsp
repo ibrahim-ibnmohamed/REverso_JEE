@@ -1,3 +1,6 @@
+<%@ page import="com.example.reverso_web.model.entite.Prospect" %>
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,7 +25,7 @@
     <header>
       <nav class="nav1 navbar">
         <div class="container-fluid">
-          <a href="index.html">
+          <a href="index.jps">
             <img class="logoCon" src="img/r.png" alt="Logo de mon entreprise"
           /></a>
         </div>
@@ -42,48 +45,50 @@
           <table class="table info-table">
             <thead class="tableAffichage">
               <tr >
-                <th id="raisonSociale">Raison Sociale</th>
+                <th >Raison Sociale</th>
                 
-                <th id="numeroDeRue">Numéro de Rue</th>
+                <th >Numéro de Rue</th>
                
-                <th id="nomDeRue">Nom de Rue</th>
+                <th>Nom de Rue</th>
               
-                <th id="ville" >Ville</th>
+                <th>Ville</th>
                 
-                <th id="codePostal" >Code Postal</th>
+                <th >Code Postal</th>
               
-                <th id="telephone">Téléphone</th>
+                <th>Téléphone</th>
             
-                <th id="email" >Adresse Email</th>
+                <th>Adresse Email</th>
              
-                <th id="date" >Date</th>
+                <th>Date</th>
                
-                <th id="interesse" >Intéressé :</th>
+                <th>Intéressé :</th>
                 
                
                 
               </tr>
+              <% for (Prospect prospect: (List<Prospect>) request.getAttribute("prospects")){%>
               <tr>
                 
-                <td id="raisonSociale">IbraTeCH </td>
+                <td  data-lable="raisonSociale"><%=prospect.getRaisonSociale() %> </td>
                 
-                <td id="numeroDeRue">5</td>
+                <td  data-lable="numeroDeRue"><%=prospect.getNumeroDeRue() %> </td>
                 
-                <td id="nomDeRue">Rue de la pixe</td>
+                <td  data-lable="nomDeRue"><%=prospect.getNomDeRue() %></td>
                 
-                <td id="ville">Nancy</td>
+                <td  data-lable="ville"><%=prospect.getVille() %></td>
                 
-                <td id="codePostal">54000</td>
+                <td  data-lable="codePostal"><%=prospect.getCodePostal() %></td>
+
+                <td data-lable="telephone"><%=prospect.getTelephone() %></td>
+
+                <td  data-lable="email"><%=prospect.getemail() %></td>
                 
-                <td id="telephone">0721458725</td>
+                <td  data-lable="date"><%=prospect.getDateDeProspection() %></td>
                 
-                <td id="email">Ibrahi@gmail.com</td>
-                
-                <td id="date">21/02/2002</td>
-                
-                <td id="interesse">oui</td>
+                <td  data-lable="interesse"><%=prospect.getProspectInteresse()%></td>
                
               </tr>
+              <%} %>
             </thead>
           </table>
         </div>

@@ -54,7 +54,7 @@
             </div>
             <div class="card-body">
               <article class="card">
-                <a class="text-center" href="affichageP.jsp"
+                <a class="text-center" href="affichageProspect"
                   ><img
                     class="iconAccueil"
                     src="img/afficher.png"

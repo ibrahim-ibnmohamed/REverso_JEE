@@ -70,8 +70,6 @@ public class DaoClient {
 
         } catch (SQLException | IOException e) {
             throw new DaoException("Problème rencontré lors de la recherche de tous les clients.");
-        } catch (MyException e) {
-            throw new MyException  ("Problème rencontré lors de la recherche du client par nom.");
         }
 
 

@@ -39,9 +39,9 @@ public class DaoConnection {
         String password = dataProperties.getProperty("password");
 
            */
-        
+
         Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/reverso?serverTimezone=UTC", "root", "");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/reverso?serverTimezone=UTC", "root", "root");
             MyLogger.LOGGER.log(Level.INFO,"Connexion à la base de données établie avec succès.");
        /* } catch (SQLException|IOException e) {
             MyLogger.LOGGER.log(Level.SEVERE, "Erreur lors de l'établissement de la connexion à la base de données", e);
