@@ -2,16 +2,13 @@ package com.example.reverso_web.model.dao;
 
 import com.example.reverso_web.utilitaires.MyLogger;
 
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
  * La classe {@code DaoConnection} est responsable de l'établissement de la connexion avec la base de données.
  * Elle utilise un fichier de propriétés pour obtenir les informations de connexion.
@@ -41,7 +38,7 @@ public class DaoConnection {
            */
 
         Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/reverso?serverTimezone=UTC", "root", "root");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/reverso?serverTimezone=UTC", "root", "");
             MyLogger.LOGGER.log(Level.INFO,"Connexion à la base de données établie avec succès.");
        /* } catch (SQLException|IOException e) {
             MyLogger.LOGGER.log(Level.SEVERE, "Erreur lors de l'établissement de la connexion à la base de données", e);

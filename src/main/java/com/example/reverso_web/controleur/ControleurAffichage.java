@@ -19,14 +19,6 @@ import java.util.List;
 
 public class ControleurAffichage extends HttpServlet {
 
-    /**
-     * Initialise l'affichage avec le choix spécifié.
-     *
-     * @param choix le choix spécifié pour l'affichage.
-     */
-    public static void init(String choix) {
-
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         try {

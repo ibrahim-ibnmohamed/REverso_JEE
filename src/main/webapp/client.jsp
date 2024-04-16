@@ -40,7 +40,7 @@
           <div class="card bg-transparent-bisque mb-2">
             <div class="card-body">
               <article class="card">
-                <a class="text-center" href="Formulair.jsp"
+                <a class="text-center" href="FormulairClient.jsp"
                   ><img
                     class="iconAccueil"
                     src="img/ajouter .png"
@@ -72,7 +72,7 @@
           <div class="card bg-transparent-bisque mb-2">
             <div class="card-body">
               <article class="card">
-                <a class="text-center" href="Formulair.jsp"
+                <a class="text-center" href="clientSelection"
                   ><img
                     class="iconAccueil"
                     src="img/modif.png"
@@ -86,7 +86,7 @@
             </div>
             <div class="card-body">
               <article class="card">
-                <a class="text-center" href="Formulair.jsp"
+                <a class="text-center" href="clientUpdateSelection.jsp"
                   ><img
                     class="iconAccueil"
                     src="img/supprimer.png"

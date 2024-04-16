@@ -15,7 +15,7 @@
     <header>
       <nav class="nav1 navbar">
         <div class="container-fluid">
-          <a href="index.html">
+          <a href="index.jsp">
             <img class="logoCon" src="img/r.png" alt="Logo de mon entreprise"
           /></a>
         </div>
@@ -30,117 +30,55 @@
     </header>
     <h2 class="text-center mb-4">Ajouter un client</h2>
 
-    <form class="form" id="addClientForm">
+    <form class="form" id="addClientForm" method="post" action="formulairClient">
       <div class="mb-3">
         <label for="raisonSociale" class="form-label">Raison Sociale :</label>
-        <input
-          type="text"
-          id="raisonSociale"
-          name="raisonSociale"
-          class="form-control"
-          required
-        />
+        <input type="text"  id="raisonSociale" name="raisonSociale" class="form-control" required/>
       </div>
 
       <div class="mb-3">
         <label for="numeroDeRue" class="form-label">Numéro de Rue :</label>
-        <input
-          type="text"
-          id="numeroDeRue"
-          name="numeroDeRue"
-          class="form-control"
-          required
-        />
+        <input type="text" id="numeroDeRue" name="numeroDeRue" class="form-control" required/>
       </div>
 
       <div class="mb-3">
         <label for="nomDeRue" class="form-label">Nom de Rue :</label>
-        <input
-          type="text"
-          id="nomDeRue"
-          name="nomDeRue"
-          class="form-control"
-          required
-        />
+        <input type="text" id="nomDeRue" name="nomDeRue" class="form-control" required/>
       </div>
 
       <div class="mb-3">
         <label for="ville" class="form-label">Ville :</label>
-        <input
-          type="text"
-          id="ville"
-          name="ville"
-          class="form-control"
-          required
-        />
+        <input type="text" id="ville" name="ville" class="form-control" required/>
       </div>
 
       <div class="mb-3">
         <label for="codePostal" class="form-label">Code Postal :</label>
-        <input
-          type="text"
-          id="codePostal"
-          name="codePostal"
-          class="form-control"
-          required
-        />
+        <input type="text" id="codePostal" name="codePostal" class="form-control" required/>
       </div>
 
       <div class="mb-3">
         <label for="telephone" class="form-label">Téléphone :</label>
-        <input
-          type="text"
-          id="telephone"
-          name="telephone"
-          class="form-control"
-          required
-        />
+        <input type="text" id="telephone" name="telephone" class="form-control" required/>
       </div>
 
       <div class="mb-3">
         <label for="email" class="form-label">Adresse Email :</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          class="form-control"
-          required
-        />
+        <input type="email" id="email" name="email" class="form-control" required/>
       </div>
 
       <div class="mb-3">
-        <label for="chiffreDaffaire" class="form-label"
-          >Chiffre d'Affaires :</label
-        >
-        <input
-          type="number"
-          id="chiffreDaffaire"
-          name="chiffreDaffaire"
-          class="form-control"
-          required
-        />
+        <label for="chiffreDaffaire" class="form-label">Chiffre d'Affaires :</label>
+        <input type="number" id="chiffreDaffaire" name="chiffreDaffaire" class="form-control" required/>
       </div>
 
       <div class="mb-3">
-        <label for="nombreEmployer" class="form-label"
-          >Nombre d'Employés :</label
-        >
-        <input
-          type="number"
-          id="nombreEmployer"
-          name="nombreEmployer"
-          class="form-control"
-          required
-        />
+        <label for="nombreEmployer" class="form-label">Nombre d'Employés :</label>
+        <input type="number" id="nombreEmployer" name="nombreEmployer" class="form-control" required/>
       </div>
 
       <div class="mb-3">
         <label for="commentaire" class="form-label">Commentaire :</label>
-        <textarea
-          id="commentaire"
-          name="commentaire"
-          class="form-control"
-        ></textarea>
+        <textarea id="commentaire" name="commentaire" class="form-control"></textarea>
       </div>
 
       <div class="mb-3 text-center">

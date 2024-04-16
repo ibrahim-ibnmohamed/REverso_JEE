@@ -25,7 +25,7 @@
     <header>
       <nav class="nav1 navbar">
         <div class="container-fluid">
-          <a href="index.jps">
+          <a href="index.jsp">
             <img class="logoCon" src="img/r.png" alt="Logo de mon entreprise"
           /></a>
         </div>

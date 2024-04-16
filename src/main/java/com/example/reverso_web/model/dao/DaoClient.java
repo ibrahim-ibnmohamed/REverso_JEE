@@ -75,6 +75,8 @@ public class DaoClient {
 
     }
 
+
+
     /**
      * Méthode pour créer un nouveau client dans la base de données.
      *
@@ -120,17 +122,17 @@ public class DaoClient {
     /**
      * Méthode pour supprimer un client de la base de données.
      *
-     * @param idClient l'identifiant du client à supprimer.
+     * @param raisonSociale l'identifiant du client à supprimer.
      * @throws DaoException si une erreur spécifique à la couche d'accès aux données se produit.
      */
-    public static void delete(int idClient) throws Exception {
+    public static void delete(String raisonSociale) throws Exception {
         Connection connection ;
         PreparedStatement preparedStatement;
 
         try {
             connection = DaoConnection.getConnection();
-            preparedStatement = connection.prepareStatement("DELETE FROM client WHERE ID_CLIENT = ?");
-            preparedStatement.setInt(1, idClient);
+            preparedStatement = connection.prepareStatement("DELETE FROM client WHERE RAISON_SOCIALE = ?");
+            preparedStatement.setString(1, raisonSociale);
             preparedStatement.executeUpdate();
         } catch (SQLException | IOException e) {
             throw new DaoException("Problème rencontré lors de la tentative de supprimer un client dans la base de données.");

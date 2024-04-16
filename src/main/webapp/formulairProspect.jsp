@@ -12,7 +12,7 @@
     <header>
         <nav class="nav1 navbar">
             <div class="container-fluid">
-                <a href="index.html"><img class="logoCon" src="img/r.png" alt="Logo de mon entreprise" /></a>
+                <a href="index.jsp"><img class="logoCon" src="img/r.png" alt="Logo de mon entreprise" /></a>
             </div>
         </nav>
         <!-- As a heading -->
@@ -23,7 +23,8 @@
     </header>
     <h2 class="text-center mb-4">Ajouter un prospect</h2>
 
-    <form class="form" id="addClientForm" onsubmit="return validateForm()">
+
+        <form class="form" id="addProspectForm" method="post" action="formulairProspect">
         <div class="mb-3">
             <label for="raisonSociale" class="form-label">Raison Sociale :</label>
             <input type="text" id="raisonSociale" name="raisonSociale" class="form-control" required />
@@ -67,7 +68,7 @@
         <div class="mb-3">
             <label for="interesse" class="form-label">Intéressé :</label>
             <select id="interesse" name="interesse" class="form-select" required>
-                <option value="">Sélectionnez</option>
+                <option value="" disabled selected>Sélectionnez</option>
                 <option value="oui">Oui</option>
                 <option value="non">Non</option>
             </select>
