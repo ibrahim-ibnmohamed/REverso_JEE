@@ -1,4 +1,4 @@
-<%@ page import="com.example.reverso_web.model.entite.Client" %>
+<%@ page import="com.example.reverso_web.model.entite.Prospect" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -46,40 +46,71 @@
                 <!-- Tableau pour les écrans de bureau (PC) -->
                 <table>
                     <!-- Entête du tableau -->
-                    <thead>
+
                     <tr>
-                        <th>Raison Sociale</th>
-                        <th>Numéro de Rue</th>
+
+
+                             <button class="btn-login  mb-2 " ><a href="ajoutProspect.jsp">Ajouter</a> </button>
+
+
+
+                    </tr>
+                    <tr >
+                        <th >Raison Sociale</th>
+
+                        <th >Numéro de Rue</th>
+
                         <th>Nom de Rue</th>
+
                         <th>Ville</th>
-                        <th>Code Postal</th>
+
+                        <th >Code Postal</th>
+
                         <th>Téléphone</th>
+
                         <th>Adresse Email</th>
-                        <th>Chiffre d'Affaires</th>
-                        <th>Nombre d'Employés</th>
+
+                        <th>Date</th>
+
+                        <th>Intéressé :</th>
+
+
+
                     </tr>
-                    </thead>
-                    <!-- Contenu du tableau -->
-                    <tbody>
-                    <% for (Client client: (List<Client>) request.getAttribute("clients")){%>
+                        <% for (Prospect prospect: (List<Prospect>) request.getAttribute("prospect")){%>
                     <tr>
-                        <td data-lable="Raison Sociale"><%=client.getRaisonSociale() %></td>
-                        <td data-lable="Num de Rue"><%=client.getNumeroDeRue() %></td>
-                        <td data-lable="Nom de Rue"><%=client.getNomDeRue() %></td>
-                        <td data-lable="Ville"><%=client.getVille() %></td>
-                        <td data-lable="Code Postal"><%=client.getCodePostal() %></td>
-                        <td data-lable="Téléphone"><%=client.getTelephone()%></td>
-                        <td data-lable="Adresse Email"><%=client.getemail() %></td>
-                        <td data-lable="CH"><%=client.getChiffreDaffaire() %></td>
-                        <td data-lable="N°Employer"><%=client.getNombreEmployer() %></td>
+
+                        <td  data-lable="raisonSociale"><%=prospect.getRaisonSociale() %> </td>
+
+                        <td  data-lable="numeroDeRue"><%=prospect.getNumeroDeRue() %> </td>
+
+                        <td  data-lable="nomDeRue"><%=prospect.getNomDeRue() %></td>
+
+                        <td  data-lable="ville"><%=prospect.getVille() %></td>
+
+                        <td  data-lable="codePostal"><%=prospect.getCodePostal() %></td>
+
+                        <td data-lable="telephone"><%=prospect.getTelephone() %></td>
+
+                        <td  data-lable="email"><%=prospect.getemail() %></td>
+
+                        <td  data-lable="date"><%=prospect.getDateDeProspection() %></td>
+
+                        <td  data-lable="interesse"><%=prospect.getProspectInteresse()%></td>
+
                         <td>
-                            <a href="modificationClient?raisonSociale=<%=client.getRaisonSociale() %>">Modifier</a>
+                            <a href="modificationProspect?raisonSociale=<%=prospect.getRaisonSociale() %>">Modifier</a>
                         </td>
                         <td>
-                            <a href="SuppressionClient?raisonSociale=<%=client.getRaisonSociale()%>">supprimer </a>
+                            <a href="SuppressionProspect?raisonSociale=<%=prospect.getRaisonSociale()%>">supprimer </a>
                         </td>
+
+
                     </tr>
+
+
                     <%} %>
+
                     <!-- Ajoutez ici les autres lignes de données -->
                     </tbody>
                 </table>

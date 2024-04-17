@@ -48,6 +48,10 @@
                     <!-- Entête du tableau -->
                     <thead>
                     <tr>
+                             <button class="btn-login  mb-2 " ><a href="ajoutClient.jsp">Ajouter</a> </button>
+
+                    </tr>
+                    <tr>
                         <th>Raison Sociale</th>
                         <th>Numéro de Rue</th>
                         <th>Nom de Rue</th>
@@ -78,8 +82,13 @@
                         <td>
                             <a href="SuppressionClient?raisonSociale=<%=client.getRaisonSociale()%>">supprimer </a>
                         </td>
+
+
                     </tr>
+
+
                     <%} %>
+
                     <!-- Ajoutez ici les autres lignes de données -->
                     </tbody>
                 </table>

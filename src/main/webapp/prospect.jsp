@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,20 +39,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="card bg-transparent-bisque mb-2">
-            <div class="card-body">
-              <article class="card">
-                <a class="text-center" href="formulairProspect.jsp"
-                  ><img
-                    class="iconAccueil"
-                    src="img/ajouter .png"
-                    alt=" icon client"
-                /></a>
 
-                <div class="content">
-                  <p>Ajouter</p>
-                </div>
-              </article>
-            </div>
             <div class="card-body">
               <article class="card">
                 <a class="text-center" href="affichageProspect"
@@ -72,7 +60,7 @@
           <div class="card bg-transparent-bisque mb-2">
             <div class="card-body">
               <article class="card">
-                <a class="text-center" href="formulairProspect.jsp"
+                <a class="text-center" href="prospectSelection"
                   ><img
                     class="iconAccueil"
                     src="img/modif.png"
@@ -80,24 +68,11 @@
                 /></a>
 
                 <div class="content">
-                  <p>Modifier</p>
+                  <p>Gérer</p>
                 </div>
               </article>
             </div>
-            <div class="card-body">
-              <article class="card">
-                <a class="text-center" href="formulairProspect.jsp"
-                  ><img
-                    class="iconAccueil"
-                    src="img/supprimer.png"
-                    alt=" icon client"
-                /></a>
 
-                <div class="content">
-                  <p>Supprimer</p>
-                </div>
-              </article>
-            </div>
           </div>
         </div>
       </div>

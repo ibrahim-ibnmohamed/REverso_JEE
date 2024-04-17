@@ -109,14 +109,15 @@ public class DaoProspect {
     /**
      * Supprime un prospect de la base de données.
      *
-     * @param idProspect L'ID du prospect à supprimer.
+     * @param raisonSociale L'ID du prospect à supprimer.
      * @throws DaoException Si une erreur spécifique au DAO se produit.
      */
-    public static void delete(int idProspect) throws Exception {
+    public static void delete(String raisonSociale) throws Exception {
         try (Connection connection = DaoConnection.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM prospect WHERE ID_PROSPECT= ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM prospect WHERE RAISON_SOCIALE= ?")) {
 
-            preparedStatement.setInt(1, idProspect);
+
+            preparedStatement.setString(1,raisonSociale);
             preparedStatement.executeUpdate();
         } catch ( IOException e) {
             throw new DaoException("Problème rencontré lors de la tentative de supprimer un client dans la base de données.");

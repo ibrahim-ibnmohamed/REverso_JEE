@@ -19,7 +19,7 @@ import java.util.List;
  */
 @WebServlet(name = "affichageProspect", value = "/affichageProspect")
 
-public class ControleurAffichageProspect extends HttpServlet {
+public class AffichageProspectServlet extends HttpServlet {
 
     /**
      * Initialise l'affichage avec le choix spécifié.

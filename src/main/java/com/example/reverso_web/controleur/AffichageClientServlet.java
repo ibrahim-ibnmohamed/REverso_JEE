@@ -17,7 +17,7 @@ import java.util.List;
  */
 @WebServlet(name = "affichageClient", value = "/affichageClient")
 
-public class ControleurAffichage extends HttpServlet {
+public class AffichageClientServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

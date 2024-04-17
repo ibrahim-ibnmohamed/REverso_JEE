@@ -1,9 +1,6 @@
 package com.example.reverso_web.controleur;
 
-import com.example.reverso_web.exception.MyException;
-import com.example.reverso_web.model.dao.DaoClient;
 import com.example.reverso_web.model.dao.DaoProspect;
-import com.example.reverso_web.model.entite.Client;
 import com.example.reverso_web.model.entite.Prospect;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,17 +10,14 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 /**
  * Le contrôleur pour l'affichage des données dans l'application.
  */
 @WebServlet(name = "formulairProspect", value = "/formulairProspect")
 
-public class ControleurFormulaireProspect extends HttpServlet {
+public class AjoutProspectServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
