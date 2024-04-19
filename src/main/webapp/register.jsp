@@ -1,10 +1,18 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: User11
+  Date: 18/04/2024
+  Time: 13:23
+  To change this template use File | Settings | File Templates.
+--%>
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
+    <title>User Registration</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="assert/CSS/style.css" rel="stylesheet">
 </head>
@@ -16,23 +24,24 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card login-container">
+                <div class="card registration-container">
                     <div class="card-body">
-                        <h2>Connexion</h2>
-                        <form action="login" method="post">
+                        <h2>Register</h2>
+                        <form action="register" method="post">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+                            </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email" required>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
                             </div>
                             <div class="form-group">
-                                <label for="password">Mot de passe</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
                             </div>
-                            <button type="submit" class="btn btn-login">Connexion</button>
+                            <button type="submit" class="btn btn-login">Register</button>
                         </form>
-                    </div>
-                    <div class="card-footer">
-                        <p class="mb-0">Si vous n'avez pas de compte, <a href="register.jsp">créez-en un ici</a>.</p>
                     </div>
                 </div>
             </div>

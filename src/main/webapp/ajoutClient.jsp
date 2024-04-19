@@ -1,3 +1,5 @@
+
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,22 +14,9 @@
     <link href="assert/CSS/style.css" rel="stylesheet" />
   </head>
   <body>
-    <header>
-      <nav class="nav1 navbar">
-        <div class="container-fluid">
-          <a href="index.jsp">
-            <img class="logoCon" src="img/r.png" alt="Logo de mon entreprise"
-          /></a>
-        </div>
-      </nav>
 
-      <!-- As a heading -->
-      <nav class="navbar nav2">
-        <div class="container-fluid"></div>
-      </nav>
+  <jsp:include page="header.jsp" />
 
-      <hr class="dropdown-divider" />
-    </header>
     <h2 class="text-center mb-4">Ajouter un client</h2>
 
     <form class="form" id="addClientForm" method="post" action="formulairClient">
@@ -86,18 +75,7 @@
       </div>
     </form>
 
-    <footer class="footer mt-auto py-3 foot">
-      <div class="container text-center text-white">
-        <span>© 2024 Mon Entreprise</span><br />
-        <span>123 Rue de l'Exemple, Ville, Pays</span><br />
-        <span>Téléphone: +123456789</span><br />
-        <span>Email: info@monentreprise.com</span><br />
-        <span>Suivez-nous sur:</span><br />
-        <a href="#" class="text-white me-2">Facebook</a>
-        <a href="#" class="text-white me-2">Twitter</a>
-        <a href="#" class="text-white">Instagram</a>
-      </div>
-    </footer>
+    <jsp:include page="footer.jsp" />
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

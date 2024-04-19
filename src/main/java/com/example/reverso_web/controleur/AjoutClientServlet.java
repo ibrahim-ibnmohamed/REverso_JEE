@@ -2,6 +2,7 @@ package com.example.reverso_web.controleur;
 
 import com.example.reverso_web.model.dao.DaoClient;
 import com.example.reverso_web.model.entite.Client;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,6 +17,11 @@ import java.io.IOException;
 @WebServlet(name = "formulairClient", value = "/formulairClient")
 
 public class AjoutClientServlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/ajoutClient.jsp");
+        dispatcher.forward(request, response);
+    }
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

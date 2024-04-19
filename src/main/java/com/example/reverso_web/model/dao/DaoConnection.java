@@ -4,9 +4,11 @@ import com.example.reverso_web.utilitaires.MyLogger;
 
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -15,9 +17,21 @@ import java.util.logging.Logger;
  */
 public class DaoConnection {
 
-    private static Connection connection;
+    static Connection connection;
     private static final Logger LOGGER = Logger.getLogger(DaoConnection.class.getName());
+    private static final String FICHER_PROPERTIES_PATH = "/database.Properties";
+    private static  Properties prop;
+    static {
+        try ( InputStream in = DaoConnection.class.getClassLoader().getResourceAsStream(FICHER_PROPERTIES_PATH)) {
+            prop = new Properties();
+            prop.load(in);
 
+        }
+        catch (IOException ex) {
+            LOGGER.log(Level.SEVERE, null, ex);
+
+        }
+    }
     /**
      * Méthode privée pour établir la connexion avec la base de données en utilisant les informations du fichier de propriétés.
      *
@@ -25,20 +39,13 @@ public class DaoConnection {
      * @throws IOException   Si une erreur d'entrée/sortie se produit lors de la lecture du fichier de propriétés.
      */
     private static void connect() throws Exception {
-       /* Properties dataProperties = new Properties();
-        File file = new File("database.properties");
 
-        try (FileInputStream input = new FileInputStream(file)) {
-            dataProperties.load(input);
-
-        String url = dataProperties.getProperty("url");
-        String username = dataProperties.getProperty("username");
-        String password = dataProperties.getProperty("password");
-
-           */
+       String url = getURL();
+       String user =getUsername();
+       String password = getPassword();
 
         Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/reverso?serverTimezone=UTC", "root", "");
+        connection = DriverManager.getConnection(url, user, password);
             MyLogger.LOGGER.log(Level.INFO,"Connexion à la base de données établie avec succès.");
        /* } catch (SQLException|IOException e) {
             MyLogger.LOGGER.log(Level.SEVERE, "Erreur lors de l'établissement de la connexion à la base de données", e);
@@ -58,6 +65,16 @@ public class DaoConnection {
                 connect();
         }
         return connection;
+    }
+
+     public static String getURL(){
+        return prop.getProperty("url");
+     }
+    public static String getUsername(){
+        return prop.getProperty("username");
+    }
+    public static String getPassword(){
+        return prop.getProperty("password");
     }
 
     static {

@@ -1,7 +1,9 @@
 package com.example.reverso_web.controleur;
 
+
 import com.example.reverso_web.model.dao.DaoProspect;
 import com.example.reverso_web.model.entite.Prospect;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,6 +20,12 @@ import java.time.LocalDate;
 @WebServlet(name = "formulairProspect", value = "/formulairProspect")
 
 public class AjoutProspectServlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/ajoutProspect.jsp");
+        dispatcher.forward(request, response);
+    }
+
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
