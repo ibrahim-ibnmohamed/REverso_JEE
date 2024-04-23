@@ -19,8 +19,7 @@ import java.io.IOException;
 public class AjoutClientServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/ajoutClient.jsp");
-        dispatcher.forward(request, response);
+       response.sendRedirect("ajoutClient.jsp");
     }
 
 

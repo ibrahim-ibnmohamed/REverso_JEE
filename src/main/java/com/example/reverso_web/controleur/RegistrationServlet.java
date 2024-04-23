@@ -10,6 +10,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 @WebServlet(name = "register", urlPatterns = {"/register"})
@@ -27,7 +29,7 @@ public class RegistrationServlet extends HttpServlet {
                 DaoUser.addUser(newUser);
 
                 // Rediriger vers une page de succès après l'inscription
-                response.sendRedirect(request.getContextPath() + "/success.jsp");
+                response.sendRedirect(request.getContextPath() + "/index");
 
 
         } catch (Exception e) {

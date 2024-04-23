@@ -1,6 +1,6 @@
 package com.example.reverso_web.controleur;
 
-import com.example.reverso_web.model.dao.DaoConnection;
+
 import com.example.reverso_web.model.dao.DaoUser;
 import com.example.reverso_web.model.entite.User;
 import jakarta.servlet.RequestDispatcher;
@@ -10,15 +10,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "login", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
+    public static HttpSession session;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession() != null) {
-            request.getSession().invalidate();
+        if (session != null) {
+            session.invalidate();
+            session= null;
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("connexion.jsp");
         dispatcher.forward(request, response);
@@ -33,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 
             if (user != null && user.getPassword().equals(password)) {
                 // Utilisateur authentifié, rediriger vers une page de succès
-                HttpSession session = request.getSession();
+                session = request.getSession();
                 session.setAttribute("user", user.getUsername());
                 session.setAttribute("email",user.getEmail());
 
@@ -48,5 +49,7 @@ public class LoginServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+
+
 }
 

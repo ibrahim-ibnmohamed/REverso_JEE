@@ -14,19 +14,26 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = " SelectionProcpectServlet", value = "/prospectSelection")
 public class SelectionProcpectServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            // Récupérer la liste des prospect
-            ArrayList<Prospect> prospect = DaoProspect.findAll();
 
-            // Envoyer la liste des prospect à la première vue (page JSP)
-            request.setAttribute("prospect", prospect);
-            RequestDispatcher dispatcher1 = request.getRequestDispatcher("prospectSelection.jsp");
-            dispatcher1.forward(request, response);
+                if (LoginServlet.session == null || LoginServlet.session.getAttribute("user") == null){
+                    response.sendRedirect("prospectSelection.jsp");
+                }else {
+
+                    List<Prospect> prospect =DaoProspect.findAll();
+                    request.setAttribute("prospect", prospect);
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/prospectSelection.jsp");
+                    dispatcher.forward(request, response);
+
+                }
+            // Récupérer la liste des prospect
+
         } catch (DaoException e) {
             throw new ServletException("Échec de la récupération de la liste des prospect.", e);
         } catch (IOException e) {

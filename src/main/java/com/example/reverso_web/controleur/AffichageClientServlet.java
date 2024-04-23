@@ -22,10 +22,16 @@ public class AffichageClientServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         try {
-            List<Client> clients =DaoClient.findAll();
-            request.setAttribute("clients", clients);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/affichage.jsp");
-            dispatcher.forward(request, response);
+            if (LoginServlet.session == null || LoginServlet.session.getAttribute("user") == null){
+                response.sendRedirect("affichage.jsp");
+            }else {
+                List<Client> clients =DaoClient.findAll();
+                request.setAttribute("clients", clients);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/affichage.jsp");
+                dispatcher.forward(request, response);
+
+            }
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
