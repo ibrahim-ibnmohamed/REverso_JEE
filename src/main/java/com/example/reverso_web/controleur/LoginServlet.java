@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 
         try {User user = DaoUser.findByEmail(email);
 
-            if (user != null && user.getPassword().equals(password)) {
+            if (DaoUser.checkUser(email,password)) {
                 // Utilisateur authentifié, rediriger vers une page de succès
                 session = request.getSession();
                 session.setAttribute("user", user.getUsername());

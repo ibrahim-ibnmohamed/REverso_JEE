@@ -40,6 +40,10 @@
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
                             </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Enter password" required>
+                            </div>
                             <button type="submit" class="btn btn-login">Register</button>
                         </form>
                     </div>

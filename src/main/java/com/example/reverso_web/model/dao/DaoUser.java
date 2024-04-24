@@ -4,6 +4,7 @@ import com.example.reverso_web.exception.DaoException;
 import com.example.reverso_web.exception.MyException;
 import com.example.reverso_web.model.entite.Prospect;
 import com.example.reverso_web.model.entite.User;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -22,6 +23,10 @@ public class DaoUser {
 
         try (  Connection connection = DaoConnection.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query)) {
+            String pw = user.getPassword();
+            String pwHashed = BCrypt.hashpw(pw, BCrypt.gensalt());
+            user.setPassword(pwHashed);
+
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getPassword());
@@ -77,5 +82,12 @@ public class DaoUser {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static boolean checkUser(String email, String password) throws SQLException {
+        User user=  findByEmail(email);
+        String passwordHashed = user.getPassword();
+        return BCrypt.checkpw(password, passwordHashed);
+
     }
 }

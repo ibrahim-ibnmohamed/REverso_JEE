@@ -28,5 +28,3 @@ if (request.getSession().getAttribute("user") != null) {
     <h1><%= request.getSession().getAttribute("user")%> </h1>
 </div>
 <% }%>
-
-}

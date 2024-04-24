@@ -23,13 +23,21 @@ public class RegistrationServlet extends HttpServlet {
             String username = request.getParameter("username");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-
+            String confirmPassword = request.getParameter("confirmPassword");
+            if (username != null && email != null && password != null && password.equals(confirmPassword)) {
                 // Créer un nouvel utilisateur avec les informations fournies
                 User newUser = new User(username, email, password);
                 DaoUser.addUser(newUser);
 
                 // Rediriger vers une page de succès après l'inscription
                 response.sendRedirect(request.getContextPath() + "/index");
+
+
+            }else {
+                response.sendRedirect(request.getContextPath() + "/login");
+            }
+
+
 
 
         } catch (Exception e) {
