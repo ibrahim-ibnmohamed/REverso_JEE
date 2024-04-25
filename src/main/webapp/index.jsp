@@ -1,4 +1,12 @@
+<%@ page import="java.util.UUID" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%
+    String csrfToken = UUID.randomUUID().toString();    // generer un token
+    session = request.getSession();
+    session.setAttribute("csrfToken", csrfToken);
+
+%>
 <!DOCTYPE html>
 <html>
 <head>

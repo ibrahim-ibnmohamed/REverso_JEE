@@ -28,6 +28,9 @@
                                 <label for="password">Mot de passe</label>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Entrez votre mot de passe" required>
                             </div>
+
+                            <input type="hidden" name="csrfTokken" value="<%= session.getAttribute("csrfToken") %>">
+
                             <button type="submit" class="btn btn-login">Connexion</button>
                         </form>
                     </div>

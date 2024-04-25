@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -50,8 +51,18 @@ public class SuppressionClientServlet extends HttpServlet {
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            DaoClient.delete(client.getRaisonSociale());
-            response.sendRedirect("affichageClient");
+
+            String tokenCSRF = request.getParameter("csrfTokken");  // recuperer valeur input
+            HttpSession session = request.getSession(); //   recuperer le token de la session
+            String csrf = (String) session.getAttribute("csrfToken");
+            if (csrf != null && csrf.equals(tokenCSRF) ) {  // comparer les tokens
+
+
+                DaoClient.delete(client.getRaisonSociale());
+                response.sendRedirect("affichageClient");
+            }else {
+                    response.sendRedirect("index.jsp");
+                }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

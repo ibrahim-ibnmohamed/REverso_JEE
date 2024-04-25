@@ -15,10 +15,7 @@ import java.util.UUID;
 public class IndexServlet extends HttpServlet {
    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-       String csrfToken = UUID.randomUUID().toString();    // generer un token
-       HttpSession session = request.getSession();
-       session.setAttribute("csrfToken", csrfToken);
-
+     
        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
        dispatcher.forward(request, response);
    }

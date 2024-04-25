@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -20,7 +21,13 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            String username = request.getParameter("username");
+            String tokenCSRF = request.getParameter("csrfTokken");  // recuperer valeur input
+            HttpSession session = request.getSession(); //   recuperer le token de la session
+            String csrf = (String) session.getAttribute("csrfToken");
+            if (csrf != null && csrf.equals(tokenCSRF) ) {  // comparer les tokens
+
+
+                String username = request.getParameter("username");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String confirmPassword = request.getParameter("confirmPassword");
@@ -36,6 +43,12 @@ public class RegistrationServlet extends HttpServlet {
             }else {
                 response.sendRedirect(request.getContextPath() + "/login");
             }
+
+
+            }else {
+                response.sendRedirect("index.jsp");
+            }
+
 
 
 

@@ -61,6 +61,7 @@
     <label for="commentaire" class="form-label">Commentaire :</label>
     <textarea id="commentaire" name="commentaire" class="form-control"><%= ((Prospect) request.getAttribute("prospect")).getCommentaire() %></textarea>
   </div>
+  <input type="hidden" name="csrfTokken" value="<%= session.getAttribute("csrfToken") %>">
 
   <div class="mb-3 text-center">
     <button type="submit" class="btn-login">Modifier</button>

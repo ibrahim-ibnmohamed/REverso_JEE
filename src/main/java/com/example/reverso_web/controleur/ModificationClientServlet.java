@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -18,6 +19,7 @@ public class ModificationClientServlet extends HttpServlet {
 private static Client client;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+
             // Récupérer l'identifiant du client à modifier depuis les paramètres de la requête
             String raisonSociale = request.getParameter("raisonSociale");
 
@@ -48,7 +50,14 @@ private static Client client;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String raisonSociale = request.getParameter("raisonSociale");
+
+            String tokenCSRF = request.getParameter("csrfTokken");  // recuperer valeur input
+            HttpSession session = request.getSession(); //   recuperer le token de la session
+            String csrf = (String) session.getAttribute("csrfToken");
+            if (csrf != null && csrf.equals(tokenCSRF) ) {  // comparer les tokens
+
+
+                String raisonSociale = request.getParameter("raisonSociale");
             String numeroDeRue = request.getParameter("numeroDeRue");
             String nomDeRue = request.getParameter("nomDeRue");
             String ville = request.getParameter("ville");
@@ -94,6 +103,10 @@ private static Client client;
 
             // Rediriger vers une page de confirmation ou de succès
          response.sendRedirect("affichageClient");
+            }else {
+                response.sendRedirect("index.jsp");
+            }
+
         } catch (NumberFormatException e) {
             throw new ServletException("Identifiant du client invalide.", e);
         } catch (DaoException e) {

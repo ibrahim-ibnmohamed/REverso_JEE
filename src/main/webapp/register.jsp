@@ -44,6 +44,9 @@
                                 <label for="confirmPassword">Confirm Password</label>
                                 <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Enter password" required>
                             </div>
+
+                            <input type="hidden" name="csrfTokken" value="<%= session.getAttribute("csrfToken") %>">
+
                             <button type="submit" class="btn btn-login">Register</button>
                         </form>
                     </div>

@@ -10,7 +10,8 @@
     <link href="assert/CSS/style.css" rel="stylesheet" />
 </head>
 <body>
- <jsp:include page="header.jsp"/>
+
+<jsp:include page="header.jsp"/>
 
     <h2 class="text-center mb-4">Ajouter un prospect</h2>
 
@@ -64,6 +65,8 @@
                 <option value="non">Non</option>
             </select>
         </div>
+
+            <input type="hidden" name="csrfTokken" value="<%= session.getAttribute("csrfToken") %>">
 
         <div class="mb-3 text-center">
             <button type="submit" class="btn-login">Ajouter</button>

@@ -12,6 +12,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -52,8 +53,21 @@ public class SuppressionProspectServlet extends HttpServlet {
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+
+            String tokenCSRF = request.getParameter("csrfTokken");  // recuperer valeur input
+            HttpSession session = request.getSession(); //   recuperer le token de la session
+            String csrf = (String) session.getAttribute("csrfToken");
+            if (csrf != null && csrf.equals(tokenCSRF) ) {  // comparer les tokens
+
+
             DaoProspect.delete(prospect.getRaisonSociale());
             response.sendRedirect("affichageProspect");
+
+            }else {
+                response.sendRedirect("index.jsp");
+            }
+
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
