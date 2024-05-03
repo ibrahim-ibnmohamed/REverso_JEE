@@ -31,9 +31,17 @@
 
                             <input type="hidden" name="csrfTokken" value="<%= session.getAttribute("csrfToken") %>">
 
-                            <button type="submit" class="btn btn-login">Connexion</button>
+                            <button type="submit" class="btn-login  mt-3 ">Connexion</button>
+
+                            <div>
+                                <label>Rester Connecté
+                                    <input type="checkbox" name="rememberMe" id="rememberMe">
+                                </label>
+                            </div>
+
                         </form>
                     </div>
+
                     <div class="card-footer">
                         <p class="mb-0">Si vous n'avez pas de compte, <a href="register.jsp">créez-en un ici</a>.</p>
                     </div>

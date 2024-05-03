@@ -19,6 +19,7 @@ public class LoginServlet extends HttpServlet {
     public static HttpSession session;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (session != null) {
+            session=request.getSession();
             session.invalidate();
             session= null;
         }
@@ -31,16 +32,11 @@ public class LoginServlet extends HttpServlet {
         String tokenCSRF = request.getParameter("csrfTokken");  // recuperer valeur input
         session = request.getSession(); //   recuperer le token de la session
         String csrf = (String) session.getAttribute("csrfToken");
+
         if (csrf != null && csrf.equals(tokenCSRF) ) {  // comparer les tokens
             String email = request.getParameter("email");
             String password = request.getParameter("password");
 
-
-
-            Cookie cookie = new Cookie("password", password);
-            cookie.setMaxAge(3600);
-            response.addCookie(new Cookie("email", email));
-            response.addCookie(new Cookie("password", password));
 
 
             try {
@@ -50,6 +46,14 @@ public class LoginServlet extends HttpServlet {
                     session = request.getSession();
                     session.setAttribute("user", user.getUsername());
                     session.setAttribute("email",user.getEmail());
+
+                    if (request.getParameter("rememberMe") != null) {
+                        session.setMaxInactiveInterval(-1);
+
+                    }else {
+                        session.setMaxInactiveInterval(30);
+                    }
+
 
 
                     response.sendRedirect("index");
