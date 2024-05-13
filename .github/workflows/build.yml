@@ -41,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
            name: package.war
-           path: path/to/package.war
+           path: artifact/package.war
