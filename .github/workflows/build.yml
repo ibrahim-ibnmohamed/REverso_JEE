@@ -47,9 +47,13 @@ jobs:
         with:
            name: package.war
       - name: Démarrer Docker
-        uses: actions/setup-docker@v2
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          sudo systemctl start docker
+          sudo systemctl enable docker
       - name: Build de l'image Docker
-        run: docker build -t mon_image_tomcat .
+        run: docker build -t reverso_web-app-tomcat .
       - name: Lancer le conteneur Docker
-        run: docker run -d -p 8080:8080 mon_image_tomcat
+        run: docker run -d -p 8080:8080 reverso_web-app-tomcat
 
