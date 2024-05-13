@@ -41,4 +41,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
            name: package.war
-           path: artifact/package.war
+           path: target/*.war
+      - name: telechargement
+        uses: actions/download-artifact@v4
+        with:
+           name: ficherWar
+
