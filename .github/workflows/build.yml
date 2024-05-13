@@ -45,5 +45,5 @@ jobs:
       - name: telechargement
         uses: actions/download-artifact@v4
         with:
-           name: ficherWar
+           name: package.war
 
