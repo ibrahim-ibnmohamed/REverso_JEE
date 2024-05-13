@@ -85,7 +85,7 @@ jobs:
           context: .
           file: Dockerfile_tomcat
           push: true
-          tags: ${{secrets.DOCKER_USER}}/reverso:latest
+          tags: ${{secrets.DOCKER_USER}}/reverso-web:latest
 
 
       - run: echo " voici l'etat du job ${{ job.status }}"
