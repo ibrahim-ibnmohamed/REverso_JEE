@@ -83,7 +83,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: tomcat/Dockerfile
+          file: infra/tomcat/Dockerfile
           push: true
           tags: ${{secrets.DOCKER_USER}}/reverso-web:latest
 
