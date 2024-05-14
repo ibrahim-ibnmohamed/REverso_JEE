@@ -121,5 +121,5 @@ jobs:
 
         # Redémarrer Tomcat (si nécessaire)
         - name: Restart Tomcat
-          run: sudo service tomcat8 restart
+          run: sudo service tomcat10 restart
           # Assurez-vous que la commande pour redémarrer Tomcat est correcte selon la configuration de votre système
