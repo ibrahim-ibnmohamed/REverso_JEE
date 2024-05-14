@@ -115,7 +115,7 @@ jobs:
 
         # Déployer le fichier WAR sur Tomcat
         - name: Deploy WAR to Tomcat
-          run: cp target/your-app.war $CATALINA_HOME/webapps
+          run: cp target/jeeempty.war $CATALINA_HOME/webapps
           # Assurez-vous de remplacer "your-app.war" par le nom de votre fichier WAR
           # Assurez-vous également que $CATALINA_HOME est correctement configuré sur votre système
 
