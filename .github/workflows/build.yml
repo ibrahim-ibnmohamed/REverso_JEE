@@ -88,22 +88,18 @@ jobs:
           tags: ${{secrets.DOCKER_USER}}/reverso-web:latest
 
 
-      - run: echo " voici l'etat du job ${{ job.status }}"
 
   backend-test:
     runs-on: ubuntu-latest
     services:
       mysql:
-      image: mysql:8
-      ports:
-        - 3306:3306
-      env:
-        MYSQL_ROOT_PASSWORD: ${{ secrets. BDD_PASSWORD}}
-      options: .
-
+        image: mysql:8
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: ${{ secrets.BDD_PASSWORD }}
     env:
-     MyBDD_Host: localhost
-     MyBDD_User: root
-     MyBDD_Password: ${{ secrets. BDD_PASSWORD }}
-     MyBDD_Databaise: reverso
-
+      MyBDD_Host: localhost
+      MyBDD_User: root
+      MyBDD_Password: ${{ secrets.BDD_PASSWORD }}
+      MyBDD_Database: reverso
