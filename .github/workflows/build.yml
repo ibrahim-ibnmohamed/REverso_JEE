@@ -110,16 +110,14 @@ jobs:
         # Construire le projet Maven
         - name: Build with Maven
           run: mvn clean package -DskipTests=true
-          # Utilisez -DskipTests=true pour éviter d'exécuter les tests lors de la construction
-          # Vous pouvez également ajouter d'autres options de construction Maven selon vos besoins
+
 
         # Déployer le fichier WAR sur Tomcat
         - name: Deploy WAR to Tomcat
           run: sudo cp target/jeeempty.war $CATALINA_HOME/webapps
-          # Assurez-vous de remplacer "your-app.war" par le nom de votre fichier WAR
-          # Assurez-vous également que $CATALINA_HOME est correctement configuré sur votre système
+
 
         # Redémarrer Tomcat (si nécessaire)
         - name: Restart Tomcat
-          run: sudo service tomcat10 restart
-          # Assurez-vous que la commande pour redémarrer Tomcat est correcte selon la configuration de votre système
+          run: sudo systemctl restart tomcat
+
