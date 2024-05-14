@@ -117,7 +117,4 @@ jobs:
           run: sudo cp target/jeeempty.war $CATALINA_HOME/webapps
 
 
-        # Redémarrer Tomcat (si nécessaire)
-        - name: Restart Tomcat
-          run: sudo systemctl restart tomcat
 
