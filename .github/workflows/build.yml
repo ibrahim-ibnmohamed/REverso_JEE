@@ -2,9 +2,9 @@ name: SonarCloud
 on:
   push:
     branches:
-      - devJEE
+      - devJEE  #- main
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened] #- main
 jobs:
   build:
     name: Build and analyze
@@ -94,9 +94,16 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mysql:
-      image: mysql:8.2.12
+      image: mysql:8
       ports:
         - 3306:3306
       env:
-        MYSQL_ROOT_PASSWORD:
+        MYSQL_ROOT_PASSWORD: ${{ secrets. BDD_PASSWORD}}
       options: .
+
+    env:
+     MyBDD_Host: localhost
+     MyBDD_User: root
+     MyBDD_Password: ${{ secrets. BDD_PASSWORD }}
+     MyBDD_Databaise: reverso
+
